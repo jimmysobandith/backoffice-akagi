@@ -1,0 +1,26 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2016
+ * Desc: Template de la page des utilisateurs
+ */
+use Phalcon\Tag as Tag;
+?>
+<div class="wrapper wrapper-content">
+	<div class="row animated fadeInRight">
+		<div class="col-lg-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5><?= $t['liste_messagerie'] ?> <small><span id="total"><?= $total ?></span> <?= $t['resultat'] ?><?= ($total > 1)?$t['s']:'' ?></small></h5>
+					<div class="ibox-tools">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>

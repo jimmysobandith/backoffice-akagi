@@ -1,0 +1,77 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2016
+ * Desc: Template principal des pages
+ */
+use Phalcon\Tag as Tag;
+
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<?= Tag::getTitle(); ?>
+	<?= Tag::stylesheetLink('/css/bootstrap.min.css'); ?>
+	<?= Tag::stylesheetLink('/font-awesome/css/font-awesome.css'); ?>
+	
+	<!-- Toastr style -->
+	<?= Tag::stylesheetLink('/css/plugins/toastr/toastr.min.css'); ?>
+
+    <!-- Gritter -->
+	<?= Tag::stylesheetLink('/js/plugins/gritter/jquery.gritter.css'); ?>
+	
+	<!-- Data Tables -->
+	<?= Tag::stylesheetLink('/css/plugins/dataTables/dataTables.bootstrap.css'); ?>
+	<?= Tag::stylesheetLink('/css/plugins/dataTables/dataTables.responsive.css'); ?>
+	<?= Tag::stylesheetLink('/public/css/plugins/dataTables/dataTables.tableTools.min.css'); ?>
+	
+	<!-- Awsome Bootstrap -->
+	<?= Tag::stylesheetLink('/public/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css'); ?>
+	
+	<!-- Select 2 -->
+	<?= Tag::stylesheetLink('/public/css/plugins/select2/select2.min.css'); ?>
+	
+	<!-- Date picker -->
+	<?= Tag::stylesheetLink('/public/css/plugins/datapicker/datepicker3.css'); ?>
+	
+	<!-- CodeMirror (messagerie) -->
+	<?= Tag::stylesheetLink('/public/css/plugins/codemirror/codemirror.css'); ?>
+	
+	<!-- iCheck -->
+	<?= Tag::stylesheetLink('/public/css/plugins/iCheck/custom.css'); ?>
+	
+	<?= Tag::stylesheetLink('/css/animate.css'); ?>
+	<?= Tag::stylesheetLink('/css/style.css'); ?>
+	
+	<?= Tag::stylesheetLink('/css/global.css'); ?>
+	<?= Tag::stylesheetLink('/css/'.$css); ?>
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+</head>
+
+<?php echo $this->getContent(); ?>
+
+</html>

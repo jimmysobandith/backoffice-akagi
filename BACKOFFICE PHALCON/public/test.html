@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Visualadmin - Messagerie</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.css" />
+	
+	<!-- Toastr style -->
+	<link rel="stylesheet" type="text/css" href="/css/plugins/toastr/toastr.min.css" />
+
+    <!-- Gritter -->
+	<link rel="stylesheet" type="text/css" href="/js/plugins/gritter/jquery.gritter.css" />
+	
+	<!-- Data Tables -->
+	<link rel="stylesheet" type="text/css" href="/css/plugins/dataTables/dataTables.bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/css/plugins/dataTables/dataTables.responsive.css" />
+	<link rel="stylesheet" type="text/css" href="/public/css/plugins/dataTables/dataTables.tableTools.min.css" />
+	
+	<!-- Awsome Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="/public/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+	
+	<!-- Select 2 -->
+	<link rel="stylesheet" type="text/css" href="/public/css/plugins/select2/select2.min.css" />
+	
+	<!-- Date picker -->
+	<link rel="stylesheet" type="text/css" href="/public/css/plugins/datapicker/datepicker3.css" />
+	
+	<!-- CodeMirror (messagerie) -->
+	<link rel="stylesheet" type="text/css" href="/public/css/plugins/codemirror/codemirror.css" />
+	<link rel="stylesheet" type="text/css" href="/public/css/plugins/codemirror/ambiance.css" />
+	
+	<link rel="stylesheet" type="text/css" href="/css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	
+	<link rel="stylesheet" type="text/css" href="/css/global.css" />
+	<link rel="stylesheet" type="text/css" href="/css/messagerie.css" />
+	
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	
+</head>
+
+<body>
+	
+	<!-- Mainly scripts -->
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	<!-- Data Tables -->
+	<script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
+	<script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+	<script src="/js/plugins/dataTables/dataTables.responsive.js"></script>
+	<script src="/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+	<script src="/js/plugins/dataTables/jquery.dataTables.columnFilter.js"></script>
+	<script src="/js/plugins/dataTables/input.js"></script>
+	<script src="/js/plugins/dataTables/extjs.js"></script>
+
+    <!-- Flot -->
+    <script src="/js/plugins/flot/jquery.flot.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.pie.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+	<script src="/js/jquery-ui-1.10.4.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- ChartJS-->
+    <script src="/js/plugins/chartJs/Chart.min.js"></script>
+	
+    <!-- Toastr -->
+	<script src="/js/plugins/toastr/toastr.min.js"></script>
+	
+	<!-- Select2 -->
+    <script src="/js/plugins/select2/select2.full.min.js"></script>
+	<script src="/js/plugins/select2/dist/js/i18n/fr.js"></script>
+	
+	<!-- Input Mask-->
+    <script src="/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+	
+	<!-- Data picker -->
+	<script src="/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+	
+	<!-- ChartJS-->
+    <script src="/js/plugins/chartJs/Chart.min.js"></script>
+	
+	<!-- Slimscroll & MetisMenu (messagerie) -->
+	<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	<div id="wrapper">
+		
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Messagerie</h2>
+                    <ol class="breadcrumb">
+												<li>
+							<a href="/index">Accueil</a>
+						</li>
+												<li class="active">
+							<strong>Messagerie</strong>
+						</li>
+											</ol>
+                </div>
+                <div class="col-lg-2">
+					
+                </div>
+            </div>
+			<div class="fh-breadcrumb">
+				<div class="fh-column">
+					<div class="full-height-scroll">
+						<ul class="list-group elements-list">
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+							<li class="list-group-item">
+								<a data-toggle="tab" href="#tab-1">
+									<small class="pull-right text-muted"> 16.02.2015</small>
+									<strong>Ann Smith</strong>
+									<div class="small m-t-xs">
+										<p>
+											Survived not only five centuries, but also the leap scrambled it to make.
+										</p>
+										<p class="m-b-none">
+											<i class="fa fa-map-marker"></i> Riviera State 32/106
+										</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="full-height">
+					<div class="full-height-scroll white-bg border-left">
+						<div class="element-detail-box">
+							<div class="tab-content">
+								<div id="tab-1" class="tab-pane">
+									<div class="pull-right">
+										<div class="tooltip-demo">
+											<button class="btn btn-white btn-xs" data-toggle="tooltip" data-placement="left" title="Plug this message"><i class="fa fa-plug"></i> Plug it</button>
+											<button class="btn btn-white btn-xs" data-toggle="tooltip" data-placement="top" title="Mark as read"><i class="fa fa-eye"></i> </button>
+											<button class="btn btn-white btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mark as important"><i class="fa fa-exclamation"></i> </button>
+											<button class="btn btn-white btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="Move to trash"><i class="fa fa-trash-o"></i> </button>
+
+										</div>
+									</div>
+									<div class="small text-muted">
+										<i class="fa fa-clock-o"></i> Friday, 12 April 2014, 12:32 am
+									</div>
+
+									<h1>
+										Their separate existence is a myth
+									</h1>
+
+									<p>
+										The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.
+									</p>
+									<p class="small">
+										<strong>Best regards, Anthony Smith </strong>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="pull-right">
+					<strong>Version</strong> 0.1 Alpha				</div>
+				<div>
+					<strong>Copyright</strong> Deliv's SARL &copy; 2015				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

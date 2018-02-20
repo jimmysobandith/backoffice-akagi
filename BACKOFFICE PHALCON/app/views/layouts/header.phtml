@@ -1,0 +1,240 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2015
+ * Desc: Template du menu et de la topbar
+ */
+use Phalcon\Tag as Tag;
+?>
+<body<?= (empty($body))?'':' class="'.$body.'"' ?>>
+	
+	<!-- Mainly scripts -->
+    <script src="/js/jquery-2.1.1.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	<!-- Data Tables -->
+	<script src="/js/plugins/dataTables/jquery.dataTables.js"></script>
+	<script src="/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+	<script src="/js/plugins/dataTables/dataTables.responsive.js"></script>
+	<script src="/js/plugins/dataTables/dataTables.tableTools.min.js"></script>
+	<script src="/js/plugins/dataTables/jquery.dataTables.columnFilter.js"></script>
+	<script src="/js/plugins/dataTables/input.js"></script>
+	<script src="/js/plugins/dataTables/extjs.js"></script>
+
+    <!-- Flot -->
+    <script src="/js/plugins/flot/jquery.flot.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="/js/plugins/flot/jquery.flot.pie.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+	<script src="/js/jquery-ui-1.10.4.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- ChartJS-->
+    <script src="/js/plugins/chartJs/Chart.min.js"></script>
+	
+    <!-- Toastr -->
+	<script src="/js/plugins/toastr/toastr.min.js"></script>
+	
+	<!-- Select2 -->
+    <script src="/js/plugins/select2/select2.full.min.js"></script>
+	<script src="/js/plugins/select2/dist/js/i18n/fr.js"></script>
+	
+	<!-- Input Mask-->
+    <script src="/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+	
+	<!-- Data picker -->
+	<script src="/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+	
+	<!-- ChartJS-->
+    <script src="/js/plugins/chartJs/Chart.min.js"></script>
+	
+	<!-- Slimscroll & MetisMenu (messagerie) -->
+	<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	
+	<!-- Peity -->
+    <script src="/js/plugins/peity/jquery.peity.min.js"></script>
+	
+	<!-- iCheck -->
+	<script src="/js/plugins/iCheck/icheck.min.js"></script>
+	
+	
+	<div id="wrapper">
+		<!-- Navigation -->
+		<nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="Vignette utilisateur" class="img-circle" src="/img/utilisateurs/<?= $u_vignette ?>" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?= mb_convert_case($u_prenom, MB_CASE_TITLE, 'UTF-8').' '.mb_strtoupper($u_nom, 'UTF-8') ?></strong>
+                            </span> <span class="text-muted text-xs block"><?= $u_fonction ?><b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="/profil"><?= $mt['profil'] ?></a></li>
+                                <li><a href="/equipe"><?= $mt['equipe'] ?></a></li>
+                                <li><a href="/messagerie"><?= $mt['boite_mail'] ?></a></li>
+                                <li class="divider"></li>
+                                <li><a href="/deconnexion"><?= $mt['deconnexion'] ?></a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            <?= $mt['logo'] ?>
+                        </div>
+                    </li>
+					<li class="divider2">
+								<img src="/img/fr/logo vert.png" width='100%;' alt="" title="" class="small"> <span class="nav-label"></span>
+					</li>
+					</br>
+					<li class="divider2">
+						<span class="nav-label"><?= $mt['administration'] ?></span>
+					</li>
+                    <li class="<?= $aindex ?>">
+                        <a href="/index"><i class="fa fa-line-chart"></i> <span class="nav-label"><?= $mt['tableau'] ?></span></a>
+                    </li>
+					<li class="<?= $amutilisateurs ?>">
+						<a><i class="fa fa-users"></i> <span class="nav-label"><?= $mt['utilisateurs'] ?></span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li class="<?= $autilisateurs ?>"><a href="/utilisateurs"><i class="fa fa-users"></i> <?= $mt['utilisateurs'] ?></a></li>
+							<li class="<?= $aactivite ?>"><a href="/activite"><i class="fa fa-bar-chart-o"></i> <?= $mt['activite'] ?></a></li>
+						</ul>
+					</li>
+					<li class="divider2">
+						<span class="nav-label"><?= $mt['administration page'] ?></span>
+					</li>
+					<li class="<?= $aaccueil ?>">
+                        <a href="/accueil"><i class="fa fa-user"></i> <span class="nav-label"><?= $mt['accueil'] ?></span></a>
+                    </li>
+					<li class="<?= $aevenements ?>">
+                        <a href="/evenements"><i class="fa fa-user"></i> <span class="nav-label"><?= $mt['evenements'] ?></span></a>
+                    </li>
+					<li class="<?= $amessagerie ?>">
+                        <a href="/messagerie"><i class="fa fa-user"></i> <span class="nav-label"><?= $mt['messagerie'] ?></span></a>
+                    </li>
+					
+
+					<!--<li class="<?= $amstats ?>">
+						<a><i class="fa fa-line-chart"></i> <span class="nav-label"><?= $mt['stats'] ?></span> <span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li class="<?= $atrackers ?>"><a href="/droits"><i class="fa fa-line-chart"></i> <?= $mt['stats_generales'] ?></a></li>
+						</ul>
+                    </li>-->
+                </ul>
+            </div>
+        </nav>
+		
+		<div id="page-wrapper" class="gray-bg dashbard-1">
+			<div class="row border-bottom">
+				<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+					<div class="navbar-header">
+						<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+						<form role="search" class="navbar-form-custom" action="/recherche" method="post">
+							<div class="form-group">
+								<input type="text" placeholder="<?= $mt['rechercher'] ?>" class="form-control" name="top-search" id="top-search">
+							</div>
+						</form>
+					</div>
+					<ul class="nav navbar-top-links navbar-right">
+						<li>
+							<span class="m-r-sm text-muted welcome-message"><?= $mt['bienvenue'] ?></span>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+								<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>
+							</a>
+							<ul class="dropdown-menu dropdown-messages">
+								<!--<li>
+									<div class="dropdown-messages-box">
+										<a href="profile.html" class="pull-left">
+											<img alt="image" class="img-circle" src="img/a7.jpg">
+										</a>
+										<div class="media-body">
+											<small class="pull-right">46h ago</small>
+											<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+											<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+										</div>
+									</div>
+								</li>-->
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+								<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>
+							</a>
+							<ul class="dropdown-menu dropdown-alerts">
+								<!--<li>
+									<a href="mailbox.html">
+										<div>
+											<i class="fa fa-envelope fa-fw"></i> You have 16 messages
+											<span class="pull-right text-muted small">4 minutes ago</span>
+										</div>
+									</a>
+								</li>-->
+							</ul>
+						</li>
+						<li>
+							<a href="/deconnexion">
+								<i class="fa fa-sign-out"></i> <?= $mt['deconnexion'] ?>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2><?= $t['title'] ?></h2>
+                    <ol class="breadcrumb">
+						<?php
+							$total = count($breadcrumbs);
+							$i=0;
+							foreach ($breadcrumbs as $breadcrumb)
+							{
+								if (! empty($breadcrumb[0]))
+								{
+						?>
+						<li>
+							<a href="/<?= $breadcrumb[0] ?>"><?= $breadcrumb[1] ?></a>
+						</li>
+						<?php
+								}
+								elseif ($i == ($total-1))
+								{
+						?>
+						<li class="active">
+							<strong><?= $breadcrumb[1] ?></strong>
+						</li>
+						<?php
+								}
+								else
+								{
+						?>
+						<li>
+							<?= $breadcrumb[1] ?>
+						</li>
+						<?php
+								}
+								$i++;
+							}
+						?>
+					</ol>
+                </div>
+                <div class="col-lg-2">
+					
+                </div>
+            </div>
+<?php
+	echo $this->getContent();
+?>

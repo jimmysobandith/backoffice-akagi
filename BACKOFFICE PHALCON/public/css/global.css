@@ -1,0 +1,48 @@
+/**
+ * Auteur: Allemandou David
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2015
+ * Desc: Fichier CSS principal
+ */
+ 
+/**
+ * Menu
+ */
+ul.nav .divider2
+{
+    overflow: hidden;
+    background-color: rgb(69, 95, 118);
+	text-align: center;
+	padding: 3px;
+	color: rgb(255, 255, 255);
+	font-weight: 700;
+	border-top: solid 2px rgb(255, 255, 255);
+	border-bottom: solid 2px rgb(255, 255, 255);
+}
+
+.middle{vertical-align: middle;}
+
+th.dt-left, td.dt-left { text-align: left; }
+th.dt-center, td.dt-center { text-align: center; }
+th.dt-right, td.dt-right { text-align: right; }
+th.dt-justify, td.dt-justify { text-align: justify; }
+
+.img-historique {width: 35px; height: 35px;}
+
+.no-mb {margin-bottom: 0px !important;}
+.mr3 {margin-right: 3px;}
+
+.no-p {padding: 0;}
+
+.fa {width: 15px; text-align: center;}
+
+/* Mise en surbrillance des lignes dans l'admin */
+tr.highlight
+{
+    background-color: rgb(255, 255, 220) !important;
+}
+
+.red a
+{
+	color: rgb(255, 0, 0) !important;
+}

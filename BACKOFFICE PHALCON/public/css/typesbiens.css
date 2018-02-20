@@ -1,0 +1,12 @@
+/**
+ * Auteur: Allemandou David
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2016
+ * Desc: Fichier CSS de la page des postes
+ */
+ 
+.checkbox-inline
+{
+	float: left;
+	margin-left: 10px;
+}

@@ -1,0 +1,182 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2016
+ * Desc: Template de la page de détail d'un utilisateur
+ */
+use Phalcon\Tag as Tag;
+
+//Date en français
+function dateFr($format, $timestamp=false)
+{
+	if ( !$timestamp ) $date_en = date($format);
+	else               $date_en = date($format,$timestamp);
+
+	$texte_en = array(
+		"Monday", "Tuesday", "Wednesday", "Thursday",
+		"Friday", "Saturday", "Sunday", "January",
+		"February", "March", "April", "May",
+		"June", "July", "August", "September",
+		"October", "November", "December"
+	);
+	$texte_fr = array(
+		"Lundi", "Mardi", "Mercredi", "Jeudi",
+		"Vendredi", "Samedi", "Dimanche", "Janvier",
+		"F&eacute;vrier", "Mars", "Avril", "Mai",
+		"Juin", "Juillet", "Ao&ucirc;t", "Septembre",
+		"Octobre", "Novembre", "D&eacute;cembre"
+	);
+	$date_fr = str_replace($texte_en, $texte_fr, $date_en);
+
+	$texte_en = array(
+		"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+		"Aug", "Sep", "Oct", "Nov", "Dec"
+	);
+	$texte_fr = array(
+		"Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim",
+		"Jan", "F&eacute;v", "Mar", "Avr", "Mai", "Jui",
+		"Jui", "Ao&ucirc;", "Sep", "Oct", "Nov", "D&eacute;c"
+	);
+	
+	$date_fr = str_replace($texte_en, $texte_fr, $date_fr);
+
+	return $date_fr;
+}
+?>
+<div class="wrapper wrapper-content">
+	<div class="row animated fadeInRight">
+		<form id="formDetail" action="/utilisateurs/enregistrer/<?= $utilisateur->id ?>" method="post" class="form-horizontal">
+		<div class="col-lg-7">
+			<input type="hidden" name="retour" id="retour" value="0" />
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><?= $t['de_actions'] ?></h5>
+						<div class="ibox-tools">
+							<a class="collapse-link">
+								<i class="fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<?php
+							if (! empty($err))
+							{
+						?>
+						<div class="alert alert-danger">
+							<?= $err ?>
+						</div>
+						<?php
+							}
+						?>
+						<?php
+							if (! empty($succ))
+							{
+						?>
+						<div class="alert alert-success">
+							<?= $succ ?>
+						</div>
+						<?php
+							}
+						?>
+						<?php
+							if (! empty($warn))
+							{
+						?>
+						<div class="alert alert-warning">
+							<?= $warn ?>
+						</div>
+						<?php
+							}
+						?>
+						<?php
+							if (! empty($info))
+							{
+						?>
+						<div class="alert alert-info">
+							<?= $info ?>
+						</div>
+						<?php
+							}
+						?>
+						<div class="row">
+							<div class="col-lg-2">
+								<a href="javascript: retour();" class="btn btn-primary "><?= $t['de_retour'] ?></a>
+							</div>
+							<div class="col-lg-10 text-right">
+								<button class="btn btn-white" type="reset"><?= $t['de_reset'] ?></button>
+								<button class="btn btn-primary" type="submit"><?= $t['de_enregistrer'] ?></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><?= $t['de_details'] ?></h5>
+						<div class="ibox-tools">
+							<a class="collapse-link">
+								<i class="fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<div class="form-group">
+							<label class="col-sm-3 control-label"><?= $t['de_nom'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="nom" class="form-control input-sm" value="<?= $utilisateur->nom ?>" />
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['de_prenom'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="prenom" class="form-control input-sm" value="<?= $utilisateur->prenom ?>" />
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['de_email'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="email" class="form-control input-sm" value="<?= $utilisateur->email ?>" />
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['de_fonction'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="fonction" class="form-control input-sm" value="<?= $utilisateur->fonction ?>" />
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['de_password'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="password" name="password" class="form-control input-sm"/>
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['de_confirmation_password'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="password" name="confirmation_password" class="form-control input-sm"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-5">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5><?= $t['de_autorisations'] ?></h5>
+					<div class="ibox-tools">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="ibox-content">
+					
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+//Fonction de retour
+function retour()
+{
+	$('#retour').val(1);
+	$('#formDetail').submit();
+}
+</script>

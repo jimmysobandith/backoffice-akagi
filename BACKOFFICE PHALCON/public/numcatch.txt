@@ -1,0 +1,1 @@
+{"direction":"Sortant","etat":"Terminé","heureAppelDecroche":"","heureDebutAppel":"2016-07-27 18:03","heureFinAppel":"2016-07-27 18:04","numeroAppel":"+33633241021","problemeReseau":"OUI","proprietaireLigne":"0647849995"}

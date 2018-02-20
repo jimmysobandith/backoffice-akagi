@@ -1,0 +1,92 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2015
+ * Desc: Template de la page de login
+ */
+use Phalcon\Tag as Tag;
+?>
+<body class="gray-bg">
+
+	<!-- Trust logo -->
+	<script type="text/javascript"> //<![CDATA[ 
+	var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+	document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+	//]]>
+	</script>
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div class="center">
+                <h1 class="logo-name"><?= $t['logo'] ?></h1>
+            </div>
+            <h3><?= $t['bienvenue'] ?></h3>
+            <p><?= $t['interface'] ?></p>
+            <p><?= $t['identifiants'] ?></p>
+            <form class="m-t" role="form" action="/login/login" method="post">
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="<?= $t['form_login'] ?>" required="" />
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pass" class="form-control" placeholder="<?= $t['form_pass'] ?>" required="" />
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b"><?= $t['login'] ?></button>
+				<?php
+					if (! empty($err))
+					{
+				?>
+				<div class="alert alert-danger">
+					<?= $err ?>
+				</div>
+				<?php
+					}
+				?>
+				<?php
+					if (! empty($succ))
+					{
+				?>
+				<div class="alert alert-success">
+					<?= $succ ?>
+				</div>
+				<?php
+					}
+				?>
+				<?php
+					if (! empty($warn))
+					{
+				?>
+				<div class="alert alert-warning">
+					<?= $warn ?>
+				</div>
+				<?php
+					}
+				?>
+				<?php
+					if (! empty($info))
+					{
+				?>
+				<div class="alert alert-info">
+					<?= $info ?>
+				</div>
+				<?php
+					}
+				?>
+                <a href="#"><small><?= $t['oublie'] ?></small></a>
+				<br /><br />
+                <p class="text-muted text-center"><small><?= $t['contact_webmaster'] ?></small></p>
+                <a class="btn btn-sm btn-white btn-block" href="mailto:jimmy@warmbee.com"><?= $t['envoi_mail'] ?></a>
+            </form>
+            <p class="m-t"> <small><?= $t['copyright'] ?></small> </p>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+	<?= Tag::javascriptInclude('public/js/jquery-2.1.1.js'); ?>
+	<?= Tag::javascriptInclude('public/js/bootstrap.min.js'); ?>
+	
+	<script type="text/javascript">
+	$('#email').focus();
+	</script>
+
+</body>

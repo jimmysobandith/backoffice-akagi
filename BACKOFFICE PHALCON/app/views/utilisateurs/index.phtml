@@ -1,0 +1,207 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2016
+ * Desc: Template de la page des utilisateurs
+ */
+use Phalcon\Tag as Tag;
+?>
+<div class="wrapper wrapper-content">
+	<div class="row animated fadeInRight">
+		<div class="col-lg-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5><?= $t['liste_utilisateurs'] ?> <small><span id="total"><?= $total ?></span> <?= $t['resultat'] ?><?= ($total > 1)?$t['s']:'' ?></small></h5>
+					<div class="ibox-tools">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+					</div>
+				</div>
+				<div class="ibox-content">
+				<?php
+					if (! empty($err))
+					{
+				?>
+				<div class="alert alert-danger">
+					<?= $err ?>
+				</div>
+				<?php
+					}
+				?>
+				<?php
+					if (! empty($succ))
+					{
+				?>
+				<div class="alert alert-success">
+					<?= $succ ?>
+				</div>
+				<?php
+					}
+				?>
+				<?php
+					if (! empty($warn))
+					{
+				?>
+				<div class="alert alert-warning">
+					<?= $warn ?>
+				</div>
+				<?php
+					}
+				?>
+				<?php
+					if (! empty($info))
+					{
+				?>
+				<div class="alert alert-info">
+					<?= $info ?>
+				</div>
+				<?php
+					}
+				?>
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="/utilisateurs/ajouter" class="btn btn-primary "><?= $t['ajouter'] ?></a>
+					</div>
+				</div>
+				<br />
+				<table id="tableUtilisateurs" class="table table-striped table-bordered table-hover dataTables-liste" >
+				<thead>
+				<tr>
+					<th><?= $t['id'] ?></th>
+					<th><?= $t['nom'] ?></th>
+					<th><?= $t['prenom'] ?></th>
+					<th><?= $t['email'] ?></th>
+					<th><?= $t['modifier'] ?></th>
+					<th><?= $t['supprimer'] ?></th>
+				</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				<tfoot>
+				<tr>
+					<th><?= $t['id'] ?></th>
+					<th><?= $t['nom'] ?></th>
+					<th><?= $t['prenom'] ?></th>
+					<th><?= $t['email'] ?></th>
+					<th><?= $t['modifier'] ?></th>
+					<th><?= $t['supprimer'] ?></th>
+				</tr>
+				</tfoot>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+//Suppression du utilisateur
+function supprimer(id_utilisateur)
+{
+	if (confirm('<?= addslashes($t['confirmation']) ?>'))
+	{
+		window.location = '/utilisateurs/supprimer/'+id_utilisateur;
+	}
+}
+
+var a = 0;
+//Gestion de la table
+$(document).ready(function() {
+	$('.dataTables-liste').dataTable({
+		responsive: true,
+		searching: true,
+		"processing": true,
+        "serverSide": true,
+		"pagingType": "full_numbers",
+        "ajax": {
+			"url" : "utilisateurs/listing",
+			"type" : "POST"
+		},
+		'fnCreatedRow': function (nRow, aData, iDataIndex) {
+			if (a == 0)
+			{
+			//alert($(nRow).find('td:first').data());
+			a++;
+			}
+			//$(nRow).attr('id', 'utilisateur_' + nRow[0]);
+		},
+		"drawCallback": function(settings) {
+			var table = $('.dataTables-liste').DataTable();
+		<?php
+			if (! empty($scrollto))
+			{
+		?>
+			table.rows().every( function () {
+				var d = this.data();
+				if (d[0] == <?= $scrollto ?>)
+				{
+					this.nodes().to$().attr('id', 'utilisateur_<?= $scrollto ?>');
+					this.nodes()
+						.to$()
+						.addClass('highlight');
+					setTimeout(function(){ window.location = '#utilisateur_<?= $scrollto ?>'; }, 500);
+				}
+			} );
+		<?php
+			}
+		?>
+		},
+		"search": {
+			"search": "<?= str_replace('"', '\"', html_entity_decode($sess_search_utilisateurs, ENT_QUOTES | ENT_HTML401)) ?>"
+		},
+		"columns": [
+			{ "name": "<?= $t['id'] ?>" },
+			{ "name": "<?= $t['nom'] ?>" },
+			{ "name": "<?= $t['prenom'] ?>" },
+			{ "name": "<?= $t['email'] ?>" },
+			{ "name": "<?= $t['modifier'] ?>" },
+			{ "name": "<?= $t['supprimer'] ?>" }
+		],
+		"pageLength": <?= (!empty($sess_length_utilisateurs))?$sess_length_utilisateurs:$mt['dt_long'] ?>,
+		"order": [<?= (count($sess_order_utilisateurs) > 0)?'['.$sess_order_utilisateurs[0]['column'].',\''.$sess_order_utilisateurs[0]['dir'].'\']':'' ?>],
+		"displayStart": <?= (!empty($sess_start_utilisateurs))?$sess_start_utilisateurs:'0' ?>,
+		"columnDefs": [ {
+			"targets": [3, 4, 5],
+			"orderable": false
+		},
+		{
+			"targets": [0, 1, 2],
+			"orderable": true
+		},
+		{
+			"targets": [0, 4, 5],
+			className: "dt-center"
+		}],
+		language: {
+			processing:     "<?= $mt['dt_traitement'] ?>",
+			search:         "<?= $mt['dt_rechercher'] ?>",
+			lengthMenu:		"<?= $mt['dt_afficher'] ?>",
+			info:           "<?= $mt['dt_affichage1'] ?>",
+			infoEmpty:      "<?= $mt['dt_affichage2'] ?>",
+			infoFiltered:   "<?= $mt['dt_filtre'] ?>",
+			infoPostFix:    "<?= $mt['dt_postfix'] ?>",
+			loadingRecords: "<?= $mt['dt_chargement'] ?>",
+			zeroRecords:    "<?= $mt['dt_aucun'] ?>",
+			emptyTable:     "<?= $mt['dt_aucune'] ?>",
+			paginate: {
+				first:      "<?= $mt['dt_premier'] ?>",
+				previous:   "<?= $mt['dt_precedent'] ?>",
+				next:       "<?= $mt['dt_suivant'] ?>",
+				last:       "<?= $mt['dt_dernier'] ?>"
+			},
+			aria: {
+				sortAscending:  "<?= $mt['dt_activer1'] ?>",
+				sortDescending: "<?= $mt['dt_activer2'] ?>"
+			}
+		}
+	});
+;
+});
+
+//Double clic sur les lignes
+$('#tableUtilisateurs tbody').on( 'dblclick', 'tr', function ()
+{
+	window.location = 'utilisateurs/detail/'+$(this).find('td:first').text();
+} );
+</script>

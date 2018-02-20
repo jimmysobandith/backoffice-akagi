@@ -1,0 +1,158 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2015
+ * Desc: Template de la page d'accueil (tableau de bord)
+ */
+use Phalcon\Tag as Tag;
+
+//Gestion date en français
+function dateFr($format, $timestamp=false, $txt='')
+{
+	if ( !$timestamp ) $date_en = $txt;
+	else               $date_en = date($format,$timestamp);
+
+	$texte_en = array(
+		"Monday", "Tuesday", "Wednesday", "Thursday",
+		"Friday", "Saturday", "Sunday", "January",
+		"February", "March", "April", "May",
+		"June", "July", "August", "September",
+		"October", "November", "December"
+	);
+	$texte_fr = array(
+		"Lundi", "Mardi", "Mercredi", "Jeudi",
+		"Vendredi", "Samedi", "Dimanche", "Janvier",
+		"F&eacute;vrier", "Mars", "Avril", "Mai",
+		"Juin", "Juillet", "Ao&ucirc;t", "Septembre",
+		"Octobre", "Novembre", "D&eacute;cembre"
+	);
+	$date_fr = str_replace($texte_en, $texte_fr, $date_en);
+
+	$texte_en = array(
+		"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+		"Aug", "Sep", "Oct", "Nov", "Dec"
+	);
+	$texte_fr = array(
+		"Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim",
+		"Jan", "F&eacute;v", "Mar", "Avr", "Mai", "Jui",
+		"Jui", "Ao&ucirc;", "Sep", "Oct", "Nov", "D&eacute;c"
+	);
+	
+	$date_fr = str_replace($texte_en, $texte_fr, $date_fr);
+
+	return $date_fr;
+}
+?>
+<div class="wrapper wrapper-content">
+	<div class="row animated fadeInRight">
+		<div class="col-lg-12">
+			<?php
+				if (! empty($err))
+				{
+			?>
+			<div class="alert alert-danger">
+				<?= $err ?>
+			</div>
+			<?php
+				}
+			?>
+			<?php
+				if (! empty($succ))
+				{
+			?>
+			<div class="alert alert-success">
+				<?= $succ ?>
+			</div>
+			<?php
+				}
+			?>
+			<?php
+				if (! empty($warn))
+				{
+			?>
+			<div class="alert alert-warning">
+				<?= $warn ?>
+			</div>
+			<?php
+				}
+			?>
+			<?php
+				if (! empty($info))
+				{
+			?>
+			<div class="alert alert-info">
+				<?= $info ?>
+			</div>
+			<?php
+				}
+			?>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<span class="label label-danger pull-right"><?= $t['fonction'] ?></span>
+					<h5><?= $t['utilisateurs']?> </h5>
+				</div>
+				<a href="/utilisateurs">
+					<div class="widget navy-bg no-padding">
+						<div class="p-m text-center">
+							<h1 class="m-xs"><?= $t['utilisateurs']?></h1>
+								<h3 class="font-bold no-margins"><?= $t['gerer les utilisateurs du visual admin']?></h3>
+								<small><?= $t['utilisateur, administrateur, employe...']?></small>
+						 </div>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="col-sm-6">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<span class="label label-danger pull-right"><?= $t['fonction'] ?></span>
+					<h5><?= $t['evenements']?> </h5>
+				</div>
+				<a href="/evenements">
+					<div class="widget yellow-bg no-padding">
+						<div class="p-m text-center">
+							<h1 class="m-xs"><?= $t['evenements']?></h1>
+								<h3 class="font-bold no-margins"><?= $t['gerer la page evenements']?></h3>
+								<small><?= $t['administration de la page : evenements']?></small>
+						 </div>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		<div class="col-sm-6">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<span class="label label-danger pull-right"><?= $t['fonction'] ?></span>
+					<h5><?= $t['messagerie']?> </h5>
+				</div>
+				<a href="/messagerie">
+					<div class="widget yellow-bg no-padding">
+						<div class="p-m text-center">
+							<h1 class="m-xs"><?= $t['messagerie']?></h1>
+								<h3 class="font-bold no-margins"><?= $t['gerer la page messagerie']?></h3>
+								<small><?= $t['administration de la page : messagerie']?></small>
+						 </div>
+					</div>
+				</a>
+			</div>
+		</div>
+		
+		 <div class="col-sm-3">
+			
+		</div>
+		<div class="col-sm-3">
+			
+		</div>
+		<div class="col-sm-3">
+			
+		</div>
+	</div>
+</div>
