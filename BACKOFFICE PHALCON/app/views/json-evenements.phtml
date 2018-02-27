@@ -1,0 +1,33 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: THEAKAGI.com
+ * Date: 2018
+ * Desc: Envoi Json evenement
+ */
+<?php
+	try
+	{
+		// On se connecte à MySQL
+		$bdd = new PDO('mysql:host=acticam2.warmbee.com;dbname=acticam2;charset=utf8', 'acticam2', 'A7qYXctC');
+	}
+	catch(Exception $e)
+	{
+		// En cas d'erreur, on affiche un message et on arrête tout
+		die('Erreur : '.$e->getMessage());
+	}
+
+	// On récupère tout le contenu de la table jeux_video
+	$reponse = $bdd->query('SELECT * FROM actualites WHERE id = "'.addslashes($id).'"');
+
+	$donnees = array();
+	while ($donnee = $reponse->fetch())
+	{
+		array_push($donnees, $donnee);
+	}
+
+	$donnees = json_encode($donnees);
+	echo $donnees;
+	
+?>
+
