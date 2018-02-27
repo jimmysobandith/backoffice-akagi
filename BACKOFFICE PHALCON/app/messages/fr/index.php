@@ -25,4 +25,13 @@ $messages = array(
 	"fonction" => "Fonction",
 	"actifs" => "Actifs",
 	"actifs2" => "% actifs",
+	
+	//Tableau de bord
+	"gerer la page evenements" => "Gerer la page évènement",
+	"administration de la page : evenements" => "Administration de la page : évènements",
+	"evenements" => "Évènements",
+	
+	"gerer la page messagerie" => "Gerer la page Messagerie",
+	"administration de la page : messagerie" => "Administration de la page : Messagerie",
+	"messagerie" => "Messagerie",
 );

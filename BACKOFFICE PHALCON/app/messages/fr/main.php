@@ -27,8 +27,10 @@ $messages = array(
 	//Page adminitration
 	"administration page" => "Administration des pages",
 	"accueil" => "Accueil",
-	"actualite" => "L'actualité",
-	"contact" => "Contact",
+	"evenements" => "Évènements",
+	"messagerie" => "Messagerie",
+	
+	
 	
 	//Footer
 	"version" => "Version",

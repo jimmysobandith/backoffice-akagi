@@ -1,0 +1,158 @@
+<?php
+/**
+ * Auteur: SOBANDITH Jimmy
+ * Société: Warmbee (Deliv's SARL)
+ * Date: 2016
+ * Desc: Template de la page d'ajout d'un utilisateur
+ */
+use Phalcon\Tag as Tag;
+
+//Date en français
+function dateFr($format, $timestamp=false)
+{
+	if ( !$timestamp ) $date_en = date($format);
+	else               $date_en = date($format,$timestamp);
+
+	$texte_en = array(
+		"Monday", "Tuesday", "Wednesday", "Thursday",
+		"Friday", "Saturday", "Sunday", "January",
+		"February", "March", "April", "May",
+		"June", "July", "August", "September",
+		"October", "November", "December"
+	);
+	$texte_fr = array(
+		"Lundi", "Mardi", "Mercredi", "Jeudi",
+		"Vendredi", "Samedi", "Dimanche", "Janvier",
+		"F&eacute;vrier", "Mars", "Avril", "Mai",
+		"Juin", "Juillet", "Ao&ucirc;t", "Septembre",
+		"Octobre", "Novembre", "D&eacute;cembre"
+	);
+	$date_fr = str_replace($texte_en, $texte_fr, $date_en);
+
+	$texte_en = array(
+		"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul",
+		"Aug", "Sep", "Oct", "Nov", "Dec"
+	);
+	$texte_fr = array(
+		"Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim",
+		"Jan", "F&eacute;v", "Mar", "Avr", "Mai", "Jui",
+		"Jui", "Ao&ucirc;", "Sep", "Oct", "Nov", "D&eacute;c"
+	);
+	
+	$date_fr = str_replace($texte_en, $texte_fr, $date_fr);
+
+	return $date_fr;
+}
+?>
+<div class="wrapper wrapper-content">
+	<div class="row animated fadeInRight">
+		<form id="formDetail" action="/evenements/nouveau" method="post" class="form-horizontal">
+		<div class="col-lg-7">
+			<input type="hidden" name="retour" id="retour" value="0" />
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><?= $t['de_actions'] ?></h5>
+						<div class="ibox-tools">
+							<a class="collapse-link">
+								<i class="fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<?php
+							if (! empty($err))
+							{
+						?>
+						<div class="alert alert-danger">
+							<?= $err ?>
+						</div>
+						<?php
+							}
+						?>
+						<?php
+							if (! empty($succ))
+							{
+						?>
+						<div class="alert alert-success">
+							<?= $succ ?>
+						</div>
+						<?php
+							}
+						?>
+						<?php
+							if (! empty($warn))
+							{
+						?>
+						<div class="alert alert-warning">
+							<?= $warn ?>
+						</div>
+						<?php
+							}
+						?>
+						<?php
+							if (! empty($info))
+							{
+						?>
+						<div class="alert alert-info">
+							<?= $info ?>
+						</div>
+						<?php
+							}
+						?>
+						<div class="row">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5><?= $t['aj_details'] ?></h5>
+						<div class="ibox-tools">
+							<a class="collapse-link">
+								<i class="fa fa-chevron-up"></i>
+							</a>
+						</div>
+					</div>
+					<div class="ibox-content">
+						<div class="form-group">
+							<label class="col-sm-3 control-label"><?= $t['aj_nom'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="nom" class="form-control input-sm" value="" />
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['aj_type'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<SELECT class="form-control m-b"name="type" size="1">
+									<OPTION selected value=""> - </OPTION>
+									<OPTION value="voiture">Rassemblement voiture</OPTION>
+									<OPTION value="loisir">Loisir</OPTION>
+									<OPTION value="sport">Sport</OPTION>
+									<OPTION value="Echange">Echange</OPTION>
+								</SELECT>
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['aj_ville'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="ville" class="form-control input-sm" value="" />
+							</div>
+							<label class="col-sm-3 control-label"><?= $t['aj_date'] ?></label>
+							<div class="col-sm-9 m-b-xs">
+								<input type="text" name="date" class="form-control input-sm" value="" />
+							</div>
+							
+							<div class="col-lg-12 text-right">
+								<a href="/evenements" class="btn btn-primary "><?= $t['aj_retour'] ?></a>
+								<button class="btn btn-white" type="reset"><?= $t['aj_reset'] ?></button>
+								<button class="btn btn-primary" type="submit"><?= $t['aj_enregistrer'] ?></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+</script>

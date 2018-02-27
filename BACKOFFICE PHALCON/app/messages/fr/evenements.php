@@ -6,18 +6,18 @@
  * Desc: Fichier de langue de la page des évènements
  */
 $messages = array(
-	"title" => "Utilisateurs",
-	"liste_utilisateurs" => "Liste des évènements",
+	"title" => "Évènement",
+	"liste_evenements" => "Liste des évènements",
 	
 	//Index
 	"id" => "ID",
 	"nom" => "Nom",
-	"prenom" => "Prénom",
-	"email" => "Email",
+	"type" => "Type",
+	"ville" => "Ville",
 	"modifier" => "Modifier",
 	"supprimer" => "Supprimer",
 	
-	"ajouter" => "Ajouter un évènements",
+	"ajouter" => "Ajouter un évènement",
 	"resultat" => "résultat",
 	"s" => "s",
 	
@@ -32,11 +32,10 @@ $messages = array(
 	"de_autorisations" => "Autorisations",
 	
 	"de_nom" => "Nom",
-	"de_prenom" => "Prénom",
-	"de_email" => "Email",
-	"de_password" => "Mot de passe",
-	"de_confirmation_password" => "Confirmation",
-	"de_fonction" => "Fonction",
+	"de_ville" => "Ville",
+	"de_type" => "Type",
+	"de_date" => "Date",
+	
 	
 	"err_detail" => "Impossible de récupérer cet évènements",
 	
@@ -49,11 +48,9 @@ $messages = array(
 	"aj_autorisations" => "Autorisations",
 	
 	"aj_nom" => "Nom",
-	"aj_prenom" => "Prénom",
-	"aj_email" => "Email",
-	"aj_password" => "Mot de passe",
-	"aj_confirmation_password" => "Confirmation",
-	"aj_fonction" => "Fonction",
+	"aj_ville" => "Ville",
+	"aj_type" => "Type",
+	"aj_date" => "Date",
 	
 	//Nouveau
 	"err_nom" => "Le nom est obligatoire",
